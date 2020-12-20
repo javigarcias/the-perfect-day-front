@@ -6,11 +6,9 @@ import './Register.scss';
 
 const Register = () => {
 
-
     const history = useHistory();
     const [messageOk, setMessageOk] = useState();
     const [messageError, setMessageError] = useState();
-
 
     const handleSubmit = event => {
         event.preventDefault(); 
@@ -31,8 +29,6 @@ const Register = () => {
             })
             .catch(error => setMessageError(error.response.data.message));
     }
-
-
     return (
         <div className="general">
             <div className="headerReg">

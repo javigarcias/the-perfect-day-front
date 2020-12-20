@@ -1,0 +1,47 @@
+.header{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 8em;
+   
+}
+
+.logo{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 2em;
+    width: 15em;
+}
+
+.imgLogo{
+    height: 7em;
+}
+
+.userLogin{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width: 30em;
+    height: 7em;
+}
+
+.menu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25em;
+    a{
+        all: unset;
+        color: #f9c6d7;
+        justify-content: center;
+        cursor: pointer;
+        margin-top: 5em;
+        margin-right: 1em;
+        padding: 0.5em;
+        &:hover {
+            background-color:#f9c6d7;
+            color: #ffffff;
+        }
+    }
+}
