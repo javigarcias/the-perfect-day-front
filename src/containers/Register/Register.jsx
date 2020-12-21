@@ -12,7 +12,22 @@ const Register = () => {
 
     const handleSubmit = event => {
         event.preventDefault(); 
-        
+        //REGEX Email valido
+        let regexEmail = /^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/;
+        //REGEX Pass entre 8 y 10 caracteres con Mayusculas, minúsculas y caracter especial
+        let regexPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,10}$/;
+
+        //Comprobación requerimientos REGEX de Email
+        if(!regexEmail.test(event.target.email.value)){
+            setMessageError("El email introducido no es válido");
+            return;
+        }
+        //Comprobación requerimientos REGEX de Password
+        if(!regexPassword.test(event.target.password.value)){
+            setMessageError("El Pasword debe contener entre 8 y 10 caracteres con mayúsculas, minúsculas y caracter especial");
+            return;
+        }
+
         const user = {
             name: event.target.name.value,
             surname: event.target.surname.value,
@@ -62,7 +77,7 @@ const Register = () => {
                     <div className='okMessage'>
                         {messageOk}
                     </div>
-                    <div className='mensajeError'>
+                    <div className='errorMessage'>
                         {messageError}
                     </div>
                 </form>
