@@ -4,6 +4,7 @@ import './App.css';
 
 import Header from './components/Header/Header';
 import Home from './containers/Home/Home';
+import Login from './containers/Login/Login';
 import Register from './containers/Register/Register';
 
 
@@ -14,6 +15,7 @@ function App() {
         <Header />
         <Switch>
           <Route path='/' component={Home} exact/>
+          <Route path='/login' component={Login} exact/>
           <Route path='/register' component={Register} exact/>
 
         </Switch>
