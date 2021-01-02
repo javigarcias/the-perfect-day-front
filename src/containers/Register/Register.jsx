@@ -34,12 +34,12 @@ const Register = () => {
             email: event.target.email.value,
             password: event.target.password.value,
         };
-        axios.post('http://localhost:3000/users/register', user)
+        axios.post(process.env.REACT_APP_API_URL + '/users/register', user)
             .then(res => {
                 localStorage.setItem("user", JSON.stringify(res.data));
                 setMessageOk(`${res.data.name} Registrado correctamente`);
                 setTimeout(() => {
-                    history.push("/profile")
+                    history.push("/login")
                 }, 1500);
 
             })

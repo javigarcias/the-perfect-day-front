@@ -1,32 +1,32 @@
 import React from 'react';
 import axios from 'axios';
 import { Link, useHistory } from 'react-router-dom';
+import { connect } from 'react-redux';
+import {LOGIN} from '../../redux/types';
+
+
 
 import './Login.scss';
 
 
-const Login = () => {
+const Login = (props) => {
     const history = useHistory();
 
     const handleSubmit = event => {
-        event.preventDefault(); // para evitar refrescar la página
+        event.preventDefault(); 
 
         const user = {
             email: event.target.email.value,
             password: event.target.password.value
         };
-        axios.post('http://localhost:3000/users/login', user)
+        axios.post(process.env.REACT_APP_API_URL + '/users/login', user)
             .then(res => {
-                /*localStorage.setItem("user", JSON.stringify(res.data));
-                if(res.data.rol === "0"){
-                    history.push("/perfil")
-
-                }else{
-                    history.push("/admin")
-                }
+                console.log(res);
+                localStorage.setItem("user", JSON.stringify(res.data));
+                props.dispatch({ type: LOGIN, payload: res.data });
                  setTimeout(() => {
-                    history.push("/perfil")
-                }, 1000); */
+                    history.push("/profile")
+                }, 1000); 
 
             })
             .catch(error => console.log(error.response.data))
@@ -58,4 +58,5 @@ const Login = () => {
     )
 }
 
-export default Login
+
+export default connect()(Login);
