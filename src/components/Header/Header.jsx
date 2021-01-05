@@ -19,7 +19,9 @@ const Header = (props) => {
     return (
         <div className='header'>
             <div className='logo'>
-                <img className='imgLogo' src='img/logo.jpg' alt='logo'></img>
+                <Link to="/">
+                    <img className='imgLogo' src='img/logo.jpg' alt='logo'></img>
+                </Link>
             </div>
             <div className='userLogin'>{props.user.name}
 

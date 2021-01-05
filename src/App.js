@@ -6,6 +6,8 @@ import Header from './components/Header/Header';
 import Home from './containers/Home/Home';
 import Login from './containers/Login/Login';
 import Register from './containers/Register/Register';
+import Restaurants from './containers/Restaurant/Restaurant';
+import Photographers from './containers/Photographers/Photographers';
 
 
 function App() {
@@ -17,6 +19,9 @@ function App() {
           <Route path='/' component={Home} exact/>
           <Route path='/login' component={Login} exact/>
           <Route path='/register' component={Register} exact/>
+          <Route path='/restaurants' component={Restaurants} exact/>
+          <Route path='/photographers' component={Photographers} exact/>
+
 
         </Switch>
     

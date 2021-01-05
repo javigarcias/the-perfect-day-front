@@ -1,0 +1,82 @@
+.home{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.menuButtons{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2em;
+}
+
+.buttonsHome{
+    all: unset;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    cursor: pointer;
+    color: #cfa865;
+    border: 0.1em solid #4ebac6;
+    border-radius: 0.5em;
+    width: 8em;
+    height: 3em;
+    margin-right: 1em;
+    
+    &:hover {
+        background-color: #4ebac6;
+        color: white;
+    }
+
+}
+.titleHome{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2em;
+    
+}
+
+.inputSearch{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.homeOption1{
+    width: 10em;
+    height: 3em;
+    border: 0.1em solid #4ebac6;
+    border-right: none;
+    
+}
+.homeOption2{
+    width: 10em;
+    height: 3em;
+    border: 0.1em solid #4ebac6;
+    border-left: none;
+   
+   
+}
+.search{
+    all: unset;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.5em;
+    width: 5em;
+    background-color:  #4ebac6;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    &:hover {
+        background-color: #38858e;
+        color:white;
+        
+    }
+}
+
+
