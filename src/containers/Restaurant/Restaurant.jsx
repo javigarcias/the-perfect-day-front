@@ -19,8 +19,7 @@ const Restaurant = (props) => {
             {props.restaurants?.map(restaurant => {
                 return (
                     <div className="cardRestaurant">
-                        <h3>{restaurant.name}</h3>
-                        <h4>{restaurant.city}</h4>
+                        <h3>{restaurant.name} - {restaurant.city}</h3>
                         <img className="restaurantImage" src={restaurant.image}></img>
                         <p>{restaurant.review}</p>
                     </div>

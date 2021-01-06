@@ -1,0 +1,25 @@
+.restaurant{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2em;
+}
+
+.cardRestaurant{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-right: 1em;
+    margin-bottom: 1em;
+    border: 0.1em solid #4ebac6;
+    border-radius: 0.2em;
+    padding: 1em;
+    width: 20em;
+    height: 28em;
+}
+.restaurantImage{
+    width: 20em;
+    
+}
