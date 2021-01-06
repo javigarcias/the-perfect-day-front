@@ -8,6 +8,8 @@ import Login from './containers/Login/Login';
 import Register from './containers/Register/Register';
 import Restaurants from './containers/Restaurant/Restaurant';
 import Photographers from './containers/Photographers/Photographers';
+import Florist from './containers/Florist/Florist';
+import Beauty from './containers/Beauty/Beauty';
 
 
 function App() {
@@ -21,7 +23,8 @@ function App() {
           <Route path='/register' component={Register} exact/>
           <Route path='/restaurants' component={Restaurants} exact/>
           <Route path='/photographers' component={Photographers} exact/>
-
+          <Route path='/florist' component={Florist} exact/>
+          <Route path='/beuty' component={Beauty} exact/>
 
         </Switch>
     

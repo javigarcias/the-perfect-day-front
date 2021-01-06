@@ -4,7 +4,13 @@ import { Link } from 'react-router-dom';
 import './Home.scss';
 
 const Home = () => {
-  
+/*
+    const search = async ()=> {
+        let search = {
+            type: 
+        }
+    }
+  */
     return (
         <div className="home">
             <div className="menuButtons">
@@ -25,20 +31,23 @@ const Home = () => {
                 <h2>Descubre los proveedores de boda mejor valorados</h2>
             </div>
             <div className="inputSearch">
-            <select name="commerces" className="homeOption1">
-                <option selected value="0"> ¿Qué buscas? </option>                  
-                    <option value="1">Restaurantes</option> 
-                    <option value="2">Fotógrafos</option> 
-                    <option value="3">Floristerías</option>   
-                    <option value="4">Belleza</option>       
-            </select>
-            <select name="citys" className="homeOption2">
-                <option selected value="0"> ¿Dónde? </option>                  
-                    <option value="1">Valencia</option> 
-                    <option value="2">Madrid</option> 
-                    <option value="3">Barcelona</option>   
-            </select>
-            <button className="search">BUSCAR</button>
+                <select name="commerces" className="homeOption1">
+                    <option selected value="0"> ¿Qué buscas? </option>                  
+                        <option value="restaurantes">Restaurantes</option> 
+                        <option value="fotografos">Fotógrafos</option> 
+                        <option value="floristerias">Floristerías</option>   
+                        <option value="belleza">Belleza</option>       
+                </select>
+                <select name="citys" className="homeOption2">
+                    <option selected value="0"> ¿Dónde? </option>                  
+                        <option value="valencia">Valencia</option> 
+                        <option value="madrid">Madrid</option> 
+                        <option value="barcelona">Barcelona</option>   
+                </select>
+                <button className="search"  >BUSCAR</button>
+            </div>
+            <div className="inputDecoration">
+                <img className='dots' src='img/dots.jpg' alt='dots'></img>
             </div>
         </div>
     )

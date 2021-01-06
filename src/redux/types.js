@@ -1,2 +1,9 @@
 export const LOGIN = "LOGIN";
 export const LOGOUT = "LOGOUT";
+export const GET_ALL_RESTAURANTS = 'GET_ALL_RESTAURANTS';
+export const GET_ALL_PHOTOGRAPHERS = 'GET_ALL_PHOTOGRAPHERS';
+export const GET_ALL_FLORIST = 'GET_ALL_FLORIST';
+export const GET_ALL_BEAUTY = 'GET_ALL_BEAUTY';
+
+
+

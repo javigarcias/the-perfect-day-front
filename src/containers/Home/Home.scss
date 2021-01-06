@@ -1,3 +1,6 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
 .home{
     display:flex;
     align-items: center;
@@ -77,6 +80,14 @@
         color:white;
         
     }
+}
+.inputDecoration{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+.dots{
+    width: 25em;
 }
 
 
