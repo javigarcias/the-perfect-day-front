@@ -15,12 +15,12 @@ const Restaurant = (props) => {
     }, [])
     
     return (
-        <div className="restaurant">
+        <div className="commerces">
             {props.restaurants?.map(restaurant => {
                 return (
-                    <div className="cardRestaurant">
+                    <div className="cardCommerces">
                         <h3>{restaurant.name} - {restaurant.city}</h3>
-                        <img className="restaurantImage" src={restaurant.image}></img>
+                        <img className="commerceImage" src={restaurant.image}></img>
                         <p>{restaurant.review}</p>
                     </div>
                 )

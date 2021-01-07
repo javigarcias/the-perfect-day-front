@@ -4,7 +4,8 @@ const {
     GET_ALL_RESTAURANTS,
     GET_ALL_PHOTOGRAPHERS,
     GET_ALL_FLORIST,
-    GET_ALL_BEAUTY 
+    GET_ALL_BEAUTY,
+    GET_COMMERCES 
  } = require ('./types');
 
 const initialState = {
@@ -12,7 +13,8 @@ const initialState = {
     restaurants: [],
     photographers: [],
     florist: [],
-    beauty: []
+    beauty: [],
+    commerces: []
 }
 
 const reducer = (state=initialState, action) => {
@@ -46,7 +48,12 @@ const reducer = (state=initialState, action) => {
             return{
                 ...state,
                 beauty: action.payload
-            }
+            };
+        case GET_COMMERCES:
+            return{
+                ...state,
+                commerces: action.payload
+            };
         default:
             return state
     }

@@ -1,0 +1,43 @@
+.review{
+    width: 100vw;
+    height: 100vh;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+.searchZone{
+    width: 50em;
+    height: 45em;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+.commercesFound{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 50em;
+    height: 80%;
+}
+
+.reviewZone{
+    width: 20em;
+    height: 30em;
+    display:flex;
+    align-items:flex-start;
+    justify-content:center;
+
+}
+
+textarea{
+    all: unset;
+    font-style: oblique;
+    border: 0.1em solid #4ebac6; 
+    border-radius: 0.3em;
+    padding: 0.2em;
+    height: 10em;
+}
+

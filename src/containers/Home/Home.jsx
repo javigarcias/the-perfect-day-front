@@ -1,16 +1,18 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 import './Home.scss';
 
 const Home = () => {
-/*
+
+    const [commerce, setCommerce] = useState("");
+
+
+
     const search = async ()=> {
-        let search = {
-            type: 
-        }
+       
     }
-  */
+  
     return (
         <div className="home">
             <div className="menuButtons">

@@ -10,6 +10,7 @@ import Restaurants from './containers/Restaurant/Restaurant';
 import Photographers from './containers/Photographers/Photographers';
 import Florist from './containers/Florist/Florist';
 import Beauty from './containers/Beauty/Beauty';
+import Review from './containers/Review/Review';
 
 
 function App() {
@@ -24,7 +25,8 @@ function App() {
           <Route path='/restaurants' component={Restaurants} exact/>
           <Route path='/photographers' component={Photographers} exact/>
           <Route path='/florist' component={Florist} exact/>
-          <Route path='/beuty' component={Beauty} exact/>
+          <Route path='/beauty' component={Beauty} exact/>
+          <Route path='/review' component={Review} exact/>
 
         </Switch>
     
