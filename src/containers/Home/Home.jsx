@@ -26,8 +26,7 @@ const Home = () => {
     const handleSearch = async (event) => {
 
         //event.preventDefault();
-        console.log('Entra en Search')
-        console.log(city, commerce)
+        console.log('Entra en Search....','TYPE:',commerce,'CITY:',city)
         const searchBody = {
             type: commerce,
             city: city

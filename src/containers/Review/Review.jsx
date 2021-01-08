@@ -9,12 +9,13 @@ import './Review.scss';
 const Review = (props) => {
 
     const [search, setSearch] = useState("");
+    const [commerceSelected, setCommerceSelected] = useState({});
     //const [findCommerces, setFindCommerces] = useState([]);
 
     const handleSearch = event => {
         setSearch(event.target.value)
         //searchCommerce(props)
-        console.log(search)
+        //console.log(search)
     }
 
     const handleSubmit = event => {
@@ -23,15 +24,15 @@ const Review = (props) => {
     }
 
     const searchCommerce = (props) => {
-        console.log(search)
-        console.log(props.commerces)
+        //console.log(search)
+        //console.log(props.commerces)
         const result = props.commerces?.filter(commerce => {
             return commerce.name.toLowerCase().indexOf(search.toLowerCase()) !== -1
         })
         if (search){
             return result.map(commerce => <div key={commerce.id} > {commerce.name}</div>)
         }
-        console.log(result)
+        //console.log(result)
         //setFindCommerces(result)
         //console.log('Find commerces',findCommerces)
     }

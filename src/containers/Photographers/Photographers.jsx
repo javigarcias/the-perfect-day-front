@@ -17,10 +17,8 @@ const Photographers = (props) => {
     return (
         <div className="commerces">
             {props.photographers?.map(photographer => {
-                <div>HOlaaaa</div>
                 return (
                     <div className="cardCommerces">
-                        {console.log(photographer)}
                         <h3>{photographer.name} - {photographer.city}</h3>
                         <img className="commerceImage" src={photographer.image}></img>
                         <p>{photographer.review}</p>
