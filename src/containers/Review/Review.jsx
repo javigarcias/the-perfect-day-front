@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { GET_COMMERCES} from '../../redux/types';
 
@@ -13,6 +13,8 @@ const Review = (props) => {
     const [search, setSearch] = useState("");
     const [commerceSelected, setCommerceSelected] = useState({});
     const [messageOk, setMessageOk] = useState();
+    const [messageError, setMessageError] = useState();
+
     const userId = props.user.id;
     console.log('Comercio seleccionado: ',commerceSelected)
     console.log('Id Usuario logeado: ',userId)
@@ -27,6 +29,15 @@ const Review = (props) => {
 
     const handleOpinion = event => {
         event.preventDefault();
+
+        if(!commerceSelected){
+            setMessageError("Debes seleccionar el proveedor");
+            return;
+        }
+        if(event.target.vote.value < 0 || event.target.vote.value > 5){
+            setMessageError("Tu puntuación debe ser un número entre 0 y 5");
+            return;
+        }
 
         const opinionBody = {
             UserId: userId,
@@ -123,6 +134,9 @@ const Review = (props) => {
                     </div>
                     <div className='okMessage'>
                         {messageOk}
+                    </div>
+                    <div className='errorMessage'>
+                        {messageError}
                     </div>
                 </form>
             </div>
