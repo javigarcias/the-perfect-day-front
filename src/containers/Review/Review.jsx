@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link, useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { GET_COMMERCES} from '../../redux/types';
 
@@ -8,8 +9,14 @@ import './Review.scss';
 
 const Review = (props) => {
 
+    const history = useHistory();
     const [search, setSearch] = useState("");
     const [commerceSelected, setCommerceSelected] = useState({});
+    const [messageOk, setMessageOk] = useState();
+    const userId = props.user.id;
+    console.log('Comercio seleccionado: ',commerceSelected)
+    console.log('Id Usuario logeado: ',userId)
+    
     //const [findCommerces, setFindCommerces] = useState([]);
 
     const handleSearch = event => {
@@ -18,8 +25,22 @@ const Review = (props) => {
         //console.log(search)
     }
 
-    const handleSubmit = event => {
+    const handleOpinion = event => {
         event.preventDefault();
+
+        const opinionBody = {
+            UserId: userId,
+            CommerceId: commerceSelected,
+            vote: event.target.vote.value,
+            opinion: event.target.opinion.value
+        };
+        axios.post(process.env.REACT_APP_API_URL + '/opinions/create', opinionBody)
+        .then(res => {
+            setMessageOk(`${props.user.name} Su opinión ha sido publicada exitosamente`);
+                setTimeout(() => {
+                    history.push("/")
+                }, 1500);
+        })
 
     }
 
@@ -30,7 +51,17 @@ const Review = (props) => {
             return commerce.name.toLowerCase().indexOf(search.toLowerCase()) !== -1
         })
         if (search){
-            return result.map(commerce => <div key={commerce.id} > {commerce.name}</div>)
+            return result.map(commerce => 
+            <div className="commerces">
+                <div className="cardCommerces">
+                    <h3>{commerce.name} - {commerce.city}</h3>
+                    <img className="commerceImage" src={commerce.image}></img>
+                    <p>{commerce.review}</p>
+                    <button className="selectButtom" onClick={() => setCommerceSelected(commerce.id)}>Selecciona</button>
+
+                </div>
+            </div>
+        )
         }
         //console.log(result)
         //setFindCommerces(result)
@@ -78,10 +109,10 @@ const Review = (props) => {
                 </div>
             </div>
             <div className="reviewZone">
-                <form className='inputReview' onSubmit={handleSubmit}>
+                <form className='inputReview' onSubmit={handleOpinion}>
                     <div className='inputName'>Valoración (0-5)</div>
                     <div>
-                        <input type='text' name='vote' required />
+                        <input type='number' name='vote' required />
                     </div>
                     <div className='inputName'>Escribe tu opinión</div>
                     <div>
@@ -90,7 +121,9 @@ const Review = (props) => {
                     <div className='buttons'>
                         <button className='publishButton' type='submit'>Publicar</button>
                     </div>
-
+                    <div className='okMessage'>
+                        {messageOk}
+                    </div>
                 </form>
             </div>
         </div>
@@ -100,7 +133,8 @@ const Review = (props) => {
 
 const mapStateToProps = state => {
     return {
-        commerces: state.commerces
+        commerces: state.commerces,
+        user: state.user
     }
 }
 

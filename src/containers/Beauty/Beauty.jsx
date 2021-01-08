@@ -15,7 +15,7 @@ const Beauty = (props) => {
     }, [])
 
     return (
-        <div className="beauty">
+        <div className="commerces">
             {props.beauty?.map(beauty => {
                 return (
                     <div className="cardCommerces">
