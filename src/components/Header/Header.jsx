@@ -33,7 +33,7 @@ const Header = (props) => {
                 <Link to='/login'>Inicio Sesión</Link>
             </div>
             <div className='logout'>
-                <button className="logoutButton" onClick={logout}>SALIR</button>
+                <button className="buttons" onClick={logout}>SALIR</button>
             </div>
         </div>
     );

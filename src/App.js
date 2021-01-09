@@ -11,6 +11,7 @@ import Photographers from './containers/Photographers/Photographers';
 import Florist from './containers/Florist/Florist';
 import Beauty from './containers/Beauty/Beauty';
 import Review from './containers/Review/Review';
+import Profile from './containers/Profile/Profile';
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
           <Route path='/florist' component={Florist} exact/>
           <Route path='/beauty' component={Beauty} exact/>
           <Route path='/review' component={Review} exact/>
+          <Route path='/profile' component={Profile} exact/>
 
         </Switch>
     

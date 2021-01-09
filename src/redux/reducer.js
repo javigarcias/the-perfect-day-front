@@ -5,16 +5,20 @@ const {
     GET_ALL_PHOTOGRAPHERS,
     GET_ALL_FLORIST,
     GET_ALL_BEAUTY,
-    GET_COMMERCES 
+    GET_COMMERCES,
+    SHOW_COMMERCE,
+    GET_OPINIONS
  } = require ('./types');
 
 const initialState = {
-    user:{},
+    user: {},
+    commerce: {},
     restaurants: [],
     photographers: [],
     florist: [],
     beauty: [],
-    commerces: []
+    commerces: [],
+    opinions: []
 }
 
 const reducer = (state=initialState, action) => {
@@ -54,6 +58,16 @@ const reducer = (state=initialState, action) => {
                 ...state,
                 commerces: action.payload
             };
+        case SHOW_COMMERCE:
+            return{
+                ...state,
+                commerce: action.payload
+            };
+        case GET_OPINIONS:
+            return{
+                ...state,
+                opinions: action.payload
+            }
         default:
             return state
     }

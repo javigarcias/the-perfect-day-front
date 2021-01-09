@@ -11,7 +11,7 @@ const Review = (props) => {
 
     const history = useHistory();
     const [search, setSearch] = useState("");
-    const [commerceSelected, setCommerceSelected] = useState({});
+    const [commerceSelected, setCommerceSelected] = useState();
     const [messageOk, setMessageOk] = useState();
     const [messageError, setMessageError] = useState();
 
@@ -20,6 +20,14 @@ const Review = (props) => {
     console.log('Id Usuario logeado: ',userId)
     
     //const [findCommerces, setFindCommerces] = useState([]);
+
+    if (!props.user.id){
+        setMessageError("Debes iniciar sesión");
+        setTimeout(() => {
+            history.push("/login")
+        }, 1500);
+
+    }
 
     const handleSearch = event => {
         setSearch(event.target.value)
@@ -31,13 +39,14 @@ const Review = (props) => {
         event.preventDefault();
 
         if(!commerceSelected){
-            setMessageError("Debes seleccionar el proveedor");
+            setMessageError("Debes seleccionar un proveedor");
             return;
         }
         if(event.target.vote.value < 0 || event.target.vote.value > 5){
             setMessageError("Tu puntuación debe ser un número entre 0 y 5");
             return;
         }
+    
 
         const opinionBody = {
             UserId: userId,

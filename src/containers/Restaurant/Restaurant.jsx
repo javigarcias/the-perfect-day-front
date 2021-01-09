@@ -1,11 +1,20 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useHistory } from 'react';
 import axios from 'axios';
 
 import './Restaurant.scss';
-import { GET_ALL_RESTAURANTS } from '../../redux/types';
+import { GET_ALL_RESTAURANTS, SHOW_COMMERCE } from '../../redux/types';
 import { connect } from 'react-redux';
 
 const Restaurant = (props) => {
+
+    const history = useHistory();
+
+    const showOpinions = async (restaurant) => {
+        props.dispatch({ type: SHOW_COMMERCE, payload: restaurant});
+        history.push('/');
+
+
+    }
 
     useEffect(() => {
         axios.get(process.env.REACT_APP_API_URL +'/commerces/restaurants')
@@ -22,6 +31,7 @@ const Restaurant = (props) => {
                         <h3>{restaurant.name} - {restaurant.city}</h3>
                         <img className="commerceImage" src={restaurant.image}></img>
                         <p>{restaurant.review}</p>
+                        <button className="buttons" onClick={ () => { showOpinions(restaurant) }}>Ver Opiniones</button>
                     </div>
                 )
             } )}
@@ -32,7 +42,8 @@ const Restaurant = (props) => {
 }
 const mapStateToProps = state => {
     return {
-        restaurants: state.restaurants
+        restaurants: state.restaurants,
+        commerce: state.commerce
     }
 }
 export default connect(mapStateToProps) (Restaurant);

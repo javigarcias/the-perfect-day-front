@@ -1,10 +1,14 @@
 export const LOGIN = "LOGIN";
 export const LOGOUT = "LOGOUT";
+
 export const GET_ALL_RESTAURANTS = 'GET_ALL_RESTAURANTS';
 export const GET_ALL_PHOTOGRAPHERS = 'GET_ALL_PHOTOGRAPHERS';
 export const GET_ALL_FLORIST = 'GET_ALL_FLORIST';
 export const GET_ALL_BEAUTY = 'GET_ALL_BEAUTY';
 export const GET_COMMERCES = 'GET_COMMERCES';
+export const GET_OPINIONS = 'GET_OPINIONS';
+
+export const SHOW_COMMERCE = 'SHOW_COMMERCE';
 
 
 
