@@ -12,6 +12,7 @@ import Florist from './containers/Florist/Florist';
 import Beauty from './containers/Beauty/Beauty';
 import Review from './containers/Review/Review';
 import Profile from './containers/Profile/Profile';
+import Opinion from './containers/Opinion/Opinion';
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
           <Route path='/beauty' component={Beauty} exact/>
           <Route path='/review' component={Review} exact/>
           <Route path='/profile' component={Profile} exact/>
+          <Route path='/opinion' component={Opinion} exact/>
 
         </Switch>
     

@@ -1,30 +1,43 @@
-import Axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { GET_COMMERCES } from '../../redux/types';
+
 import axios from 'axios';
 
 import './Home.scss';
 
-const Home = () => {
+const Home = (props) => {
 
     const [commerce, setCommerce] = useState("");
     const [city, setCity] = useState("");
     const [findCommerces, setFindCommerces] = useState([]);
+    console.log('Comercios: ',props.commerces)
 
 
     const handleCommerce = event => {
+        event.preventDefault();
+
         setCommerce(event.target.value)
         
     }
     const handleCity = event => {
+        event.preventDefault();
+
         setCity(event.target.value)
         
     }
 
+    const handleSearch = (props) => {
+        
+        console.log(props.commerces)
+
+        //const result = props.commerces?.filter( (commerces) => props.commerces.type === commerce );
+        //console.log('Resultado: ',result);
 
 
-    const handleSearch = async (event) => {
-
+    /*
+    INTENTO DE PETICIÓN ESPECIFICA AL BACK POR CIUDAD Y TIPO
         //event.preventDefault();
         console.log('Entra en Search....','TYPE:',commerce,'CITY:',city)
         const searchBody = {
@@ -38,21 +51,25 @@ const Home = () => {
 
         }).catch((err) => {
         console.log(err);
-
-      });
+    });
+    */
 
     }
 
-
     useEffect( () => {
 
+        axios.get(process.env.REACT_APP_API_URL +'/commerces')
+        .then(res => {
+            props.dispatch({ type: GET_COMMERCES, payload: res.data })
+        })
+    /*
+        INTENTO DE PETICIÓN ESPECÍFICA AL BACK POR CIUDAD Y TIPO
         const effect = async () =>{
     
         await handleSearch()
-    
       }
       effect ()
-      
+      */
       }, []);
   
     return (
@@ -94,7 +111,7 @@ const Home = () => {
                 <img className='dots' src='img/dots.jpg' alt='dots'></img>
             </div>
             <div className="findCommerces">
-                {findCommerces?.map (commerce => <div>{commerce.name}</div>) }
+               
             </div>
         </div>
     )
@@ -102,5 +119,10 @@ const Home = () => {
     
 }
 
+const mapStateToProps = state => {
+    return {
+        commerces: state.commerces,
+    }
+}
 
-export default Home;
+export default connect(mapStateToProps) (Home);
