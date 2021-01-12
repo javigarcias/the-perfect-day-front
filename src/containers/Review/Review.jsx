@@ -31,8 +31,6 @@ const Review = (props) => {
 
     const handleSearch = event => {
         setSearch(event.target.value)
-        //searchCommerce(props)
-        //console.log(search)
     }
 
     const handleOpinion = event => {
@@ -65,8 +63,7 @@ const Review = (props) => {
     }
 
     const searchCommerce = (props) => {
-        //console.log(search)
-        //console.log(props.commerces)
+
         const result = props.commerces?.filter(commerce => {
             return commerce.name.toLowerCase().indexOf(search.toLowerCase()) !== -1
         })
@@ -78,14 +75,10 @@ const Review = (props) => {
                     <img className="commerceImage" src={commerce.image}></img>
                     <p>{commerce.review}</p>
                     <button className="selectButtom" onClick={() => setCommerceSelected(commerce.id)}>Selecciona</button>
-
                 </div>
             </div>
         )
         }
-        //console.log(result)
-        //setFindCommerces(result)
-        //console.log('Find commerces',findCommerces)
     }
 
     useEffect(() => {
@@ -94,31 +87,7 @@ const Review = (props) => {
                 props.dispatch({ type: GET_COMMERCES, payload: res.data });
             })
     }, [])
-/*
-    const showResult = () => {
-        if (!findCommerces?.[0]){
-            console.log('Dentro if...',findCommerces)
-            return(
-                <div>No hay resultado</div>
-            )
-        }
-        console.log('Hay resultado!!')
-        return (
-            <div>
-                <div>Hay resultado!!!</div>
-                {findCommerces?.map(commerce => {
-                    {console.log('Dentro del mapeo...',commerce)}
-                    <div className="cardCommerces">
-                    <h3>{commerce.name}</h3>
-                    <img className="commerceImage" src={commerce.image}></img>
-                    </div>
-                })}
-            
-            </div>
-          
-        )
-    }
-*/
+    
     return (
         <div className="review">
             <div className="searchZone">

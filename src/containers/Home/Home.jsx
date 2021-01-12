@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { GET_COMMERCES } from '../../redux/types';
+import { SHOW_COMMERCE } from '../../redux/types';
 
 import axios from 'axios';
 
@@ -9,68 +9,52 @@ import './Home.scss';
 
 const Home = (props) => {
 
+    const history = useHistory();
+
     const [commerce, setCommerce] = useState("");
     const [city, setCity] = useState("");
     const [findCommerces, setFindCommerces] = useState([]);
-    console.log('Comercios: ',props.commerces)
 
-
+    //Setea el tipo de comercio introducido desde select
     const handleCommerce = event => {
         event.preventDefault();
-
-        setCommerce(event.target.value)
-        
+        setCommerce(event.target.value)      
     }
+
+    //Setea la ciudad introducida desde select 
     const handleCity = event => {
         event.preventDefault();
-
-        setCity(event.target.value)
-        
+        setCity(event.target.value)        
     }
 
-    const handleSearch = (props) => {
-        
-        console.log(props.commerces)
+    //Función para ver las opiniones del comercio seleccionado
+    const showOpinions = async (commerce) => {
+        //Guardamos todos los datos del comercio en REDUX
+        props.dispatch({ type: SHOW_COMMERCE, payload: commerce });
+        history.push('/opinion');
+    }
 
-        //const result = props.commerces?.filter( (commerces) => props.commerces.type === commerce );
-        //console.log('Resultado: ',result);
+    //Función que ejecuta el filtrado de comercios según el tipo y la ciudad
+    const handleSearch = async () => {
 
-
-    /*
-    INTENTO DE PETICIÓN ESPECIFICA AL BACK POR CIUDAD Y TIPO
-        //event.preventDefault();
-        console.log('Entra en Search....','TYPE:',commerce,'CITY:',city)
         const searchBody = {
             type: commerce,
             city: city
         };
-        await axios.get(process.env.REACT_APP_API_URL + '/commerces/typeAndCity', searchBody)
-        .then((res) => {
-            setFindCommerces(res.data);
-            return findCommerces;
-
-        }).catch((err) => {
-        console.log(err);
-    });
-    */
-
+        await axios.post(process.env.REACT_APP_API_URL + '/commerces/typeAndCity', searchBody)
+            .then((res) => {
+                setFindCommerces(res.data);
+            }).catch((err) => {
+                console.log(err);
+            });
     }
 
-    useEffect( () => {
-
-        axios.get(process.env.REACT_APP_API_URL +'/commerces')
-        .then(res => {
-            props.dispatch({ type: GET_COMMERCES, payload: res.data })
-        })
-    /*
-        INTENTO DE PETICIÓN ESPECÍFICA AL BACK POR CIUDAD Y TIPO
-        const effect = async () =>{
-    
-        await handleSearch()
-      }
-      effect ()
-      */
-      }, []);
+    useEffect(() => {
+        const effect = async () => {
+            await handleSearch()
+        }
+        effect()
+    }, []);
   
     return (
         <div className="home">
@@ -95,7 +79,7 @@ const Home = (props) => {
                 <select name="commerces" className="homeOption1" onChange={handleCommerce} >
                     <option selected value="0"> ¿Qué buscas? </option>                  
                         <option value="restaurantes">Restaurantes</option> 
-                        <option value="fotografos">Fotógrafos</option> 
+                        <option value="fotografia">Fotógrafos</option> 
                         <option value="floristerias">Floristerías</option>   
                         <option value="belleza">Belleza</option>       
                 </select>
@@ -111,7 +95,22 @@ const Home = (props) => {
                 <img className='dots' src='img/dots.jpg' alt='dots'></img>
             </div>
             <div className="findCommerces">
-               
+               {findCommerces.map(commerce => {
+                   return(
+                    <div className="commerces" key={commerce.id}>
+                        <div className="cardCommerces">
+                            <h3>{commerce.name}</h3>
+                            <img className="commerceImage" src={commerce.image}></img>
+                            <div className="reviewCard">
+                                <p>{commerce.review}</p>
+                            </div>
+                            <div className="buttonCard">
+                            <button className="opinionButton" onClick={ () => { showOpinions(commerce) }}>Ver Opiniones</button>
+                        </div>
+                        </div>
+                    </div>)
+                }
+            )}
             </div>
         </div>
     )

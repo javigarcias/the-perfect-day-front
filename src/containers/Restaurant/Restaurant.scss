@@ -17,9 +17,51 @@
     border-radius: 0.2em;
     padding: 1em;
     width: 20em;
-    height: 28em;
+    height: 35em;
+}
+.tittleCard{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    background-color: aqua;
+    width: 20em;
+    height: 5em;
+}
+.imageCard{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    background-color: blue;
+    width: 20em;
+    height: 20em;
+
 }
 .commerceImage{
     width: 20em;
     
+}
+
+.reviewCard{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    background-color: blueviolet;
+    height: 19em;
+    width: 20em;
+}
+.opinionButton{
+    all: unset;
+    color: #4ebac6;
+    border: 0.1em solid #4ebac6;
+    justify-content: center;
+    border-radius: 0.5em;
+    cursor: pointer;
+    padding: 0.2em;
+    margin-right: 1em;
+    margin-top: 1em;
+  
+    &:hover {
+        background-color:#4ebac6;
+        color: #ffffff
+    }
 }

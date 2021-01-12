@@ -12,9 +12,7 @@ const Restaurant = (props) => {
 
     const showOpinions = async (restaurant) => {
         props.dispatch({ type: SHOW_COMMERCE, payload: restaurant});
-        history.push('/');
-
-
+        history.push('/opinion');
     }
 
     useEffect(() => {
@@ -28,11 +26,19 @@ const Restaurant = (props) => {
         <div className="commerces">
             {props.restaurants?.map(restaurant => {
                 return (
-                    <div className="cardCommerces">
-                        <h3>{restaurant.name} - {restaurant.city}</h3>
-                        <img className="commerceImage" src={restaurant.image}></img>
-                        <p>{restaurant.review}</p>
-                        <button className="buttons" onClick={ () => { showOpinions(restaurant) }}>Ver Opiniones</button>
+                    <div className="cardCommerces" key={restaurant.id}>
+                        <div className="tittleCard">
+                            <h3>{restaurant.name} - {restaurant.city}</h3>
+                        </div>
+                        <div className="imageCard">
+                            <img className="commerceImage" src={restaurant.image}></img>
+                        </div>
+                        <div className="reviewCard">
+                            <p>{restaurant.review}</p>
+                        </div>
+                        <div className="buttonCard">
+                            <button className="opinionButton" onClick={ () => { showOpinions(restaurant) }}>Ver Opiniones</button>
+                        </div>
                     </div>
                 )
             } )}
@@ -44,6 +50,7 @@ const Restaurant = (props) => {
 const mapStateToProps = state => {
     return {
         restaurants: state.restaurants,
+        opinions: state.opinions,
         commerce: state.commerce
     }
 }
