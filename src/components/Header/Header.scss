@@ -46,3 +46,29 @@
         }
     }
 }
+
+.logout{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.logoutButton{
+    all: unset;
+
+    color: white;
+    background-color:#f9c6d7;
+    justify-content: center;
+    border-radius: 0.2em;
+    cursor: pointer;
+    padding: 0.3em;
+    margin-right: 1em;
+    margin-top: 5em;
+  
+    &:hover {
+        border: 0.1em solid #f9c6d7;
+        color: #f9c6d7;
+        background-color: white;
+
+
+    }
+}
