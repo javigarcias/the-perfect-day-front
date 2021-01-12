@@ -9,7 +9,7 @@ import './Opinion.scss';
 const Opinion = (props) => {
 
 
-    useEffect( () => {
+    useEffect(() => {
 
         let id = props.commerce.id
 
@@ -18,8 +18,8 @@ const Opinion = (props) => {
                 props.dispatch({ type: GET_OPINIONS, payload: res.data });
             })
 
-      
-      }, []);
+
+    }, []);
 
     return(
 

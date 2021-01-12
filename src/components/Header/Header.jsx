@@ -23,9 +23,6 @@ const Header = (props) => {
                     <img className='imgLogo' src='img/logo.jpg' alt='logo'></img>
                 </Link>
             </div>
-            <div className='userLogin'>{props.user.name}
-
-            </div>
             <div className='menu'>
                 <Link to='/'>Home</Link>
                 <Link to='/review'>Publica tu opinión</Link>
