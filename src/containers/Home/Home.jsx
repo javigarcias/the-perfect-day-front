@@ -85,9 +85,9 @@ const Home = (props) => {
                 </select>
                 <select name="citys" className="homeOption2" onChange={handleCity}>
                     <option selected value="0"> ¿Dónde? </option>                  
-                        <option value="valencia">Valencia</option> 
-                        <option value="madrid">Madrid</option> 
-                        <option value="barcelona">Barcelona</option>   
+                        <option value="Valencia">Valencia</option> 
+                        <option value="Madrid">Madrid</option> 
+                        <option value="Barcelona">Barcelona</option>   
                 </select>
                 <button className="search" onClick={() => { handleSearch() }} >BUSCAR</button>
             </div>
