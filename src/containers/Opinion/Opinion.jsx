@@ -23,26 +23,45 @@ const Opinion = (props) => {
 
     return(
         <div className="opinion">
-            <div className="cardCommerces">
-                <div className="tittleCard">
-                    <h3>{props.commerce.name}</h3>
+            <div className="commerceZone">
+                <div className="cardCommerce">
+                    <div className="tittleCommerce">
+                        {props.commerce.name}
+                    </div>
+                    <div className="imageZone">
+                        <img className="commerceImageOpinion" src={props.commerce.image}></img>
+                    </div>
+                    <div className="valoration">
+                        Opiniones:  Puntuación Media:
+                    </div>
+                    <div className="reviewCommerce">
+                        {props.commerce.review}
+                    </div>
                 </div>
-                <div className="imageCard">
-                    <img className="commerceImage" src={props.commerce.image}></img>
-                </div>
-                <div className="reviewCard">
-                    <p>{props.commerce.review}</p>
-                </div>    
             </div>
-            <div>
-                {props.opinions?.map(opinion => {
-                    return (
-                        <div>
-                            {opinion.vote}
-                        </div>
-                    )
-                })}
-              
+            <div className="opinionsZone">
+                <div>
+                    {props.opinions?.map(opinion => {
+                        return (
+                            <div className="opinionCard">
+                                <div className="valorationOpinion">
+                                    {opinion.vote}
+                                </div>
+                                <div className="bodyOpinion">
+                                    <div className="headerOpinion">
+                                        <div className="autorOpinion">
+                                            {opinion.User.name} {opinion.User.surname}
+                                        </div>
+
+                                    </div>
+                                    <div className="opinionDescription">
+                                        {opinion.opinion}
+                                    </div>
+                                </div>
+                            </div>
+                        )
+                    })}
+                </div>
             </div>
         </div>
     )

@@ -1,0 +1,108 @@
+.opinion{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1em;
+    width: 100vw;
+    height: 90vh;
+}
+
+.commerceZone{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 35%;
+    height: 100%;
+}
+
+.cardCommerce{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-right: 1em;
+    margin-bottom: 1em;
+    border: 0.1em solid #4ebac6;
+    border-radius: 0.3em;
+    width: 90%;
+    height: 85%;
+}
+
+.tittleCommerce{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    font-weight: bold;
+    width: 100%;
+    height: 10%;
+}
+.imageZone{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    height: 45%;
+}
+.commerceImageOpinion{
+    height: 100%;
+    
+}
+.valoration{
+   
+    height: 10%;
+    width: 95%;
+}
+.reviewCommerce{
+    height: 35%;
+    width: 95%;
+}
+
+.opinionsZone{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 65%;
+    height: 100%;
+}
+
+.opinionCard{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1em;
+    margin-bottom: 1em;
+    border: 0.1em solid #4ebac6;
+    border-radius: 0.6em;
+    width: 60em;
+    height: 6em;
+}
+.valorationOpinion{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width: 9%;
+    height: 90%;
+    color: white;
+    font-size: 4em;
+    font-weight: bold;
+    border-radius: 0.2em;
+    background-color: #4ebac6;
+}
+.bodyOpinion{
+    width: 88%;
+    height: 100%;
+    padding-left: 1em;
+}
+.headerOpinion{
+    font-size: 1.2em;
+    font-weight: bold;
+    padding-top: 0.5em;
+
+}
+.autorOpinion{
+    margin-right: 1em;
+}
+
