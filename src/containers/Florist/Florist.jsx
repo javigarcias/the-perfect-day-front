@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import { GET_ALL_FLORIST, SHOW_COMMERCE } from '../../redux/types';
@@ -25,6 +25,21 @@ const Florist = (props) => {
     }, [])
 
     return (
+        <div className="florist">
+            <div className="menuButtons">
+                <Link to="/restaurants" style={{ textDecoration: 'none' }}>
+                    <button className="buttonsHome">Restaurantes</button>
+                </Link>
+                <Link to="/photographers" style={{ textDecoration: 'none' }}>
+                    <button className="buttonsHome">Fotógrafos</button>
+                </Link>
+                <Link to="/florist" style={{ textDecoration: 'none' }}>
+                    <button className="buttonSelected">Floristerías</button>
+                </Link>
+                <Link to="/beauty" style={{ textDecoration: 'none' }}>
+                    <button className="buttonsHome">Belleza</button>
+                </Link>
+            </div>
         <div className="commerces">
             {props.florist?.map(florist => {
                 return (
@@ -44,6 +59,7 @@ const Florist = (props) => {
                     </div>
                 )
             } )}
+        </div>
         </div>
     )
 

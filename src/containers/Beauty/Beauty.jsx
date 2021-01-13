@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import axios from 'axios';
 import { GET_ALL_BEAUTY, SHOW_COMMERCE } from '../../redux/types';
 import { connect } from 'react-redux';
@@ -23,25 +23,41 @@ const Beauty = (props) => {
     }, [])
 
     return (
-        <div className="commerces">
-            {props.beauty?.map(beauty => {
-                return (
-                    <div className="cardCommerces" key={beauty.id}>
-                        <div className="tittleCard">
-                            {beauty.name}  
+        <div className="beauty">
+            <div className="menuButtons">
+                <Link to="/restaurants" style={{ textDecoration: 'none' }}>
+                    <button className="buttonsHome">Restaurantes</button>
+                </Link>
+                <Link to="/photographers" style={{ textDecoration: 'none' }}>
+                    <button className="buttonsHome">Fotógrafos</button>
+                </Link>
+                <Link to="/florist" style={{ textDecoration: 'none' }}>
+                    <button className="buttonsHome">Floristerías</button>
+                </Link>
+                <Link to="/beauty" style={{ textDecoration: 'none' }}>
+                    <button className="buttonSelected">Belleza</button>
+                </Link>
+            </div>
+            <div className="commerces">
+                {props.beauty?.map(beauty => {
+                    return (
+                        <div className="cardCommerces" key={beauty.id}>
+                            <div className="tittleCard">
+                                {beauty.name}
+                            </div>
+                            <div className="subtittleCard">
+                                {beauty.city}
+                            </div>
+                            <div className="imageCard">
+                                <img className="commerceImage" src={beauty.image}></img>
+                            </div>
+                            <div className="buttonCard">
+                                <button className="opinionButton" onClick={() => { showOpinions(beauty) }}>Ver Opiniones</button>
+                            </div>
                         </div>
-                        <div className="subtittleCard">
-                            {beauty.city}
-                        </div>
-                        <div className="imageCard">
-                            <img className="commerceImage" src={beauty.image}></img>
-                        </div>
-                        <div className="buttonCard">
-                            <button className="opinionButton" onClick={ () => { showOpinions(beauty) }}>Ver Opiniones</button>
-                        </div>
-                    </div>
-                )
-            } )}
+                    )
+                })}
+            </div>
         </div>
     )
 

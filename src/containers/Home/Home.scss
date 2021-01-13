@@ -35,6 +35,21 @@
     }
 
 }
+.buttonSelected{
+    all: unset;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    background-color: #4ebac6;
+    color: white;
+    border: 0.1em solid #4ebac6;
+    border-radius: 0.5em;
+    width: 8em;
+    height: 3em;
+    margin-right: 1em;
+}
+
 .titleHome{
     display:flex;
     align-items: center;
@@ -92,7 +107,13 @@
 
 .findZone{
     display:flex;
+    align-items: center;
+    justify-content: center;
    
-  
 
+}
+.findCommerces{
+    display:flex;
+    align-items: center;
+    justify-content: center;
 }

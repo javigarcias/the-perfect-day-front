@@ -26,7 +26,6 @@ const Header = (props) => {
             <div className='menu'>
                 <Link to='/'>Home</Link>
                 <Link to='/review'>Publica tu opinión</Link>
-                <Link to='/events'>Eventos</Link>
                 <Link to='/login'>Inicio Sesión</Link>
             </div>
             <div className='logout'>

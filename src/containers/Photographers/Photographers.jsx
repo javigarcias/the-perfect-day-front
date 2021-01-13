@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import axios from 'axios';
 
 import './Photographers.scss';
@@ -24,29 +24,43 @@ const Photographers = (props) => {
     }, [])
     
     return (
-        <div className="commerces">
-            {props.photographers?.map(photographer => {
-                return (
-                    <div className="cardCommerces" key={photographer.id}>
-                        <div className="tittleCard">
-                            {photographer.name}  
+        <div className="photographers">
+            <div className="menuButtons">
+                <Link to="/restaurants" style={{ textDecoration: 'none' }}>
+                    <button className="restaurant buttonsHome">Restaurantes</button>
+                </Link>
+                <Link to="/photographers" style={{ textDecoration: 'none' }}>
+                    <button className="buttonSelected">Fotógrafos</button>
+                </Link>
+                <Link to="/florist" style={{ textDecoration: 'none' }}>
+                    <button className="florist buttonsHome">Floristerías</button>
+                </Link>
+                <Link to="/beauty" style={{ textDecoration: 'none' }}>
+                    <button className="beauty buttonsHome">Belleza</button>
+                </Link>
+            </div>
+            <div className="commerces">
+                {props.photographers?.map(photographer => {
+                    return (
+                        <div className="cardCommerces" key={photographer.id}>
+                            <div className="tittleCard">
+                                {photographer.name}
+                            </div>
+                            <div className="subtittleCard">
+                                {photographer.city}
+                            </div>
+                            <div className="imageCard">
+                                <img className="commerceImage" src={photographer.image}></img>
+                            </div>
+                            <div className="buttonCard">
+                                <button className="opinionButton" onClick={() => { showOpinions(photographer) }}>Ver Opiniones</button>
+                            </div>
                         </div>
-                        <div className="subtittleCard">
-                            {photographer.city}
-                        </div>
-                        <div className="imageCard">
-                            <img className="commerceImage" src={photographer.image}></img>
-                        </div>
-                        <div className="buttonCard">
-                            <button className="opinionButton" onClick={ () => { showOpinions(photographer) }}>Ver Opiniones</button>
-                        </div>
-                    </div>
-                )
-            } )}
+                    )
+                })}
+            </div>
         </div>
     )
-    
-
 }
 const mapStateToProps = state => {
     return {

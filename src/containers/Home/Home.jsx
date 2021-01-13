@@ -94,24 +94,25 @@ const Home = (props) => {
             <div className="inputDecoration">
                 <img className='dots' src='img/dots.jpg' alt='dots'></img>
             </div>
-            <div className="findZone">
-                <div className="findCommerces">
-                    {findCommerces.map(commerce => {
-                        return (
-                            <div className="commerces" key={commerce.id}>
-                                <div className="cardCommerces">
-                                    <h3>{commerce.name}</h3>
-                                    <img className="commerceImage" src={commerce.image}></img>
-
-                                    <div className="buttonCard">
-                                        <button className="opinionButton" onClick={() => { showOpinions(commerce) }}>Ver Opiniones</button>
-                                    </div>
-                                </div>
-                            </div>)
-                    }
-                    )}
-                </div>
+            <div className="commerces">
+                {findCommerces.map(commerce => {
+                    return (
+                        <div className="cardCommerces" key={commerce.id}>
+                            <div className="tittleCard">
+                                {commerce.name}
+                            </div>
+                            <div className="imageCard">
+                                <img className="commerceImage" src={commerce.image}></img>
+                            </div>
+                            <div className="buttonCard">
+                                <button className="opinionButton" onClick={() => { showOpinions(commerce) }}>Ver Opiniones</button>
+                            </div>
+                        </div>
+                    )
+                }
+                )}
             </div>
+
         </div>
     )
    
