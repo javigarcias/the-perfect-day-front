@@ -77,40 +77,40 @@ const Home = (props) => {
             </div>
             <div className="inputSearch">
                 <select name="commerces" className="homeOption1" onChange={handleCommerce} >
-                    <option selected value="0"> ¿Qué buscas? </option>                  
-                        <option value="restaurantes">Restaurantes</option> 
-                        <option value="fotografia">Fotógrafos</option> 
-                        <option value="floristerias">Floristerías</option>   
-                        <option value="belleza">Belleza</option>       
+                    <option selected value="0"> ¿Qué buscas? </option>
+                    <option value="restaurantes">Restaurantes</option>
+                    <option value="fotografia">Fotógrafos</option>
+                    <option value="floristerias">Floristerías</option>
+                    <option value="belleza">Belleza</option>
                 </select>
                 <select name="citys" className="homeOption2" onChange={handleCity}>
-                    <option selected value="0"> ¿Dónde? </option>                  
-                        <option value="Valencia">Valencia</option> 
-                        <option value="Madrid">Madrid</option> 
-                        <option value="Barcelona">Barcelona</option>   
+                    <option selected value="0"> ¿Dónde? </option>
+                    <option value="Valencia">Valencia</option>
+                    <option value="Madrid">Madrid</option>
+                    <option value="Barcelona">Barcelona</option>
                 </select>
                 <button className="search" onClick={() => { handleSearch() }} >BUSCAR</button>
             </div>
             <div className="inputDecoration">
                 <img className='dots' src='img/dots.jpg' alt='dots'></img>
             </div>
-            <div className="findCommerces">
-               {findCommerces.map(commerce => {
-                   return(
-                    <div className="commerces" key={commerce.id}>
-                        <div className="cardCommerces">
-                            <h3>{commerce.name}</h3>
-                            <img className="commerceImage" src={commerce.image}></img>
-                            <div className="reviewCard">
-                                <p>{commerce.review}</p>
-                            </div>
-                            <div className="buttonCard">
-                            <button className="opinionButton" onClick={ () => { showOpinions(commerce) }}>Ver Opiniones</button>
-                        </div>
-                        </div>
-                    </div>)
-                }
-            )}
+            <div className="findZone">
+                <div className="findCommerces">
+                    {findCommerces.map(commerce => {
+                        return (
+                            <div className="commerces" key={commerce.id}>
+                                <div className="cardCommerces">
+                                    <h3>{commerce.name}</h3>
+                                    <img className="commerceImage" src={commerce.image}></img>
+
+                                    <div className="buttonCard">
+                                        <button className="opinionButton" onClick={() => { showOpinions(commerce) }}>Ver Opiniones</button>
+                                    </div>
+                                </div>
+                            </div>)
+                    }
+                    )}
+                </div>
             </div>
         </div>
     )

@@ -1,13 +1,21 @@
 import React, { useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import { connect } from 'react-redux';
-import { GET_ALL_FLORIST} from '../../redux/types';
+import { GET_ALL_FLORIST, SHOW_COMMERCE } from '../../redux/types';
 
 
 
 import './Florist.scss';
 
 const Florist = (props) => {
+
+    const history = useHistory();
+
+    const showOpinions = async (florist) => {
+        props.dispatch({ type: SHOW_COMMERCE, payload: florist});
+        history.push('/opinion');
+    }
 
     useEffect(() => {
         axios.get(process.env.REACT_APP_API_URL +'/commerces/florist')
@@ -20,10 +28,19 @@ const Florist = (props) => {
         <div className="commerces">
             {props.florist?.map(florist => {
                 return (
-                    <div className="cardCommerces">
-                        <h3>{florist.name} - {florist.city}</h3>
-                        <img className="commerceImage" src={florist.image}></img>
-                        <p>{florist.review}</p>
+                    <div className="cardCommerces" key={florist.id}>
+                        <div className="tittleCard">
+                            {florist.name}  
+                        </div>
+                        <div className="subtittleCard">
+                            {florist.city}
+                        </div>
+                        <div className="imageCard">
+                            <img className="commerceImage" src={florist.image}></img>
+                        </div>
+                        <div className="buttonCard">
+                            <button className="opinionButton" onClick={ () => { showOpinions(florist) }}>Ver Opiniones</button>
+                        </div>
                     </div>
                 )
             } )}
@@ -34,7 +51,8 @@ const Florist = (props) => {
 
 const mapStateToProps = state => {
     return {
-        florist: state.florist
+        florist: state.florist,
+        commerce: state.commerce
     }
 }
 

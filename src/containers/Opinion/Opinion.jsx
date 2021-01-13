@@ -22,8 +22,7 @@ const Opinion = (props) => {
     }, []);
 
     return(
-
-        <div>
+        <div className="opinion">
             <div className="cardCommerces">
                 <div className="tittleCard">
                     <h3>{props.commerce.name}</h3>

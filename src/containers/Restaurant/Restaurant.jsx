@@ -28,13 +28,13 @@ const Restaurant = (props) => {
                 return (
                     <div className="cardCommerces" key={restaurant.id}>
                         <div className="tittleCard">
-                            <h3>{restaurant.name} - {restaurant.city}</h3>
+                            {restaurant.name}  
+                        </div>
+                        <div className="subtittleCard">
+                            {restaurant.city}
                         </div>
                         <div className="imageCard">
                             <img className="commerceImage" src={restaurant.image}></img>
-                        </div>
-                        <div className="reviewCard">
-                            <p>{restaurant.review}</p>
                         </div>
                         <div className="buttonCard">
                             <button className="opinionButton" onClick={ () => { showOpinions(restaurant) }}>Ver Opiniones</button>
@@ -50,7 +50,6 @@ const Restaurant = (props) => {
 const mapStateToProps = state => {
     return {
         restaurants: state.restaurants,
-        opinions: state.opinions,
         commerce: state.commerce
     }
 }
