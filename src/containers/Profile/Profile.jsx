@@ -21,27 +21,29 @@ const Profile = (props) => {
 
     return (
 
-        <div>
+        <div className="profile">
             <div className="headerProfile">
-                Bienvenid@ {props.user.name}
+                Bienvenid@ {props.user.name}, estas son tus opiniones publicadas
             </div>
             <div className="bodyProfile">
                 {props.opinions?.map(opinion => {
                     return (
-                        <div className="cardProfile">
-                            <div className="nameCommerce">
-                                {opinion.Commerce.name}
+                        <div className="opinionCard">
+                                <div className="valorationOpinion">
+                                    {opinion.vote}
+                                </div>
+                                <div className="bodyOpinion">
+                                    <div className="headerOpinion">
+                                        <div className="autorOpinion">
+                                            {opinion.Commerce.name} 
+                                        </div>
+
+                                    </div>
+                                    <div className="opinionDescription">
+                                        {opinion.opinion}
+                                    </div>
+                                </div>
                             </div>
-                            <div className="imageCardProfile">
-                                <img className="commerceImage" src={opinion.Commerce.image}></img>
-                            </div>
-                            <div className="opinionCommerce">
-                                {opinion.opinion}
-                            </div>
-                            <div className="voteOpinion">
-                                {opinion.vote}
-                            </div>
-                        </div>
                     )
                 })}
 

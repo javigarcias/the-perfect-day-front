@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { GET_COMMERCES} from '../../redux/types';
+import { GET_COMMERCES, SHOW_COMMERCE } from '../../redux/types';
 
 import axios from 'axios';
 
@@ -27,6 +27,11 @@ const Review = (props) => {
             history.push("/login")
         }, 1500);
 
+    }
+
+    const showOpinions = async (commerce) => {
+        props.dispatch({ type: SHOW_COMMERCE, payload: commerce});
+        history.push('/opinion');
     }
 
     const handleSearch = event => {
@@ -70,12 +75,22 @@ const Review = (props) => {
         if (search){
             return result.map(commerce => 
             <div className="commerces">
-                <div className="cardCommerces">
-                    <h3>{commerce.name} - {commerce.city}</h3>
-                    <img className="commerceImage" src={commerce.image}></img>
-                    <p>{commerce.review}</p>
-                    <button className="selectButtom" onClick={() => setCommerceSelected(commerce.id)}>Selecciona</button>
-                </div>
+    
+                    <div className="cardCommerces" key={commerce.id}>
+                        <div className="tittleCard">
+                            {commerce.name}  
+                        </div>
+                        <div className="subtittleCard">
+                            {commerce.city}
+                        </div>
+                        <div className="imageCard">
+                            <img className="commerceImage" src={commerce.image}></img>
+                        </div>
+                        <div className="buttonCard">
+                            <button className="opinionButton" onClick={ () => { setCommerceSelected(commerce) }}>SELECCIONAR</button>
+                        </div>
+                    </div>
+                
             </div>
         )
         }
@@ -126,7 +141,8 @@ const Review = (props) => {
 const mapStateToProps = state => {
     return {
         commerces: state.commerces,
-        user: state.user
+        user: state.user,
+        commerce: state.commerce
     }
 }
 

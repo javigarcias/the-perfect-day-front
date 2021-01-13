@@ -1,0 +1,18 @@
+.profile{
+    display:flex;
+    align-items: center;
+    justify-content: center; 
+    flex-direction: column;   
+}
+.bodyProfile{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 2em;
+}
+.headerProfile{
+    margin-top: 0.5em;
+
+    font-size: 1.5em;
+}
