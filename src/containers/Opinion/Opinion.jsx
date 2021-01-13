@@ -9,6 +9,12 @@ import './Opinion.scss';
 const Opinion = (props) => {
 
 
+    const numberOpinions = () => {
+        const number = props.opinions.length
+        return number
+    }
+    
+
     useEffect(() => {
 
         let id = props.commerce.id
@@ -16,6 +22,8 @@ const Opinion = (props) => {
         axios.get(process.env.REACT_APP_API_URL + `/opinions/getByCommerce/${id}`)
             .then(res => {
                 props.dispatch({ type: GET_OPINIONS, payload: res.data });
+                
+                
             })
 
 
@@ -32,7 +40,7 @@ const Opinion = (props) => {
                         <img className="commerceImageOpinion" src={props.commerce.image}></img>
                     </div>
                     <div className="valoration">
-                        Opiniones:  Puntuación Media:
+                        {numberOpinions()} opiniones  
                     </div>
                     <div className="reviewCommerce">
                         {props.commerce.review}
