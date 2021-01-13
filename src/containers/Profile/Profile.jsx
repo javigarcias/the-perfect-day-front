@@ -23,7 +23,7 @@ const Profile = (props) => {
 
         <div className="profile">
             <div className="headerProfile">
-                Bienvenid@ {props.user.name}, estas son tus opiniones publicadas
+                Bienvenid@ {props.user?.name}, estas son tus opiniones publicadas
             </div>
             <div className="bodyProfile">
                 {props.opinions?.map(opinion => {
@@ -35,7 +35,7 @@ const Profile = (props) => {
                                 <div className="bodyOpinion">
                                     <div className="headerOpinion">
                                         <div className="autorOpinion">
-                                            {opinion.Commerce.name} 
+                                            {opinion.Commerce?.name} 
                                         </div>
 
                                     </div>

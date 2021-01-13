@@ -36,8 +36,7 @@ const Register = () => {
         };
         axios.post(process.env.REACT_APP_API_URL + '/users/register', user)
             .then(res => {
-                localStorage.setItem("user", JSON.stringify(res.data));
-                setMessageOk(`${res.data.name} Registrado correctamente`);
+                setMessageOk("Registrado correctamente");
                 setTimeout(() => {
                     history.push("/login")
                 }, 1500);
@@ -67,6 +66,9 @@ const Register = () => {
                     <div className='inputName'>Password</div>
                     <div>
                         <input type='password' name='password' required />
+                    </div>
+                    <div className="regexPass">
+                        *Debe contener entre 8 y 10 caracteres con mayúsculas, minúsculas y caracter especial.
                     </div>
                     <div className='buttons'>
                         <button className='registerButton' type='submit'>Registrar</button>

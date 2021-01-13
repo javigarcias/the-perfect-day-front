@@ -19,7 +19,6 @@ const Review = (props) => {
     console.log('Comercio seleccionado: ',commerceSelected)
     console.log('Id Usuario logeado: ',userId)
     
-    //const [findCommerces, setFindCommerces] = useState([]);
 
     if (!props.user.id){
         setMessageError("Debes iniciar sesión");
@@ -87,7 +86,7 @@ const Review = (props) => {
                             <img className="commerceImage" src={commerce.image}></img>
                         </div>
                         <div className="buttonCard">
-                            <button className="opinionButton" onClick={ () => { setCommerceSelected(commerce) }}>SELECCIONAR</button>
+                            <button className="opinionButton" onClick={ () => { setCommerceSelected(commerce.id) }}>SELECCIONAR</button>
                         </div>
                     </div>
                 
