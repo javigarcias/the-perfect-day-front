@@ -21,7 +21,7 @@ npm start
 ```
 ## Ejecutando las pruebas ⚙️
 
-* [HEROKU TEST](https://clinica-dental-f.herokuapp.com/)
+* [The Perfect Day](https://the-perfect-day-front.herokuapp.com/)
 
 ### Components 📌
 - /header:
