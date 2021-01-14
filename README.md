@@ -45,10 +45,12 @@ npm start
 - /restaurant /photographers /florist /beauty
     - Son las vistas creadas para mostrar todos los comercios filtrados según su tipo.
 
-### REGEX 📌
-- Formato email valido
-- Password:
-    - Debe contener entre 8 y 10 caracteres con Mayusculas, minúsculas y caracter especial.
+### REGEX 📋
+ - EMAIL: formato valido
+ - PASSWORD: 
+    -8/10 caracteres
+    -Uso de mayúsculas y minúsculas
+    -Uso de al menos un carácter especial
 
 ## Construido con 🛠️
 
