@@ -1,70 +1,83 @@
-# Getting Started with Create React App
+![](src/img/logo.jpg)
+![](https://visitor-badge.glitch.me/badge?page_id=javigarcias.the-perfect-day-front)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# The Perfect Day
+_Este proyecto consiste en la creación de una aplicación web tipo red social, donde los usuarios podrán asignar una opinión y una valoración a un comercio determinado. Esta app se ha realizado pensando en distintos proveedores del sector nupcial, donde tanto los invitados al evento, como los propios creadores del evento podrán dejar su opinión y experiencia._
 
-## Available Scripts
+## Comenzando 🚀
 
-In the project directory, you can run:
+_Para poder poner en funcionamiento el proyecto en tu maquina local con propositos de desarrollo y pruebas necesitarás instalar las siguiente dependencias:_
 
-### `npm start`
+```
+npm init -y
+npm i sass react-router-dom axios redux react-redux
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```
+_Para ejecutar el programa en tu maquina local:_
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+```
+npm start
 
-### `npm test`
+```
+## Ejecutando las pruebas ⚙️
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* [HEROKU TEST](https://clinica-dental-f.herokuapp.com/)
 
-### `npm run build`
+### Components 📌
+- /header:
+    - Acceso directo a /home /review /login desde cualquier punto de la web
+### Containers 📌
+- /home:
+    - Acceso directo a los diferentes tipos de proveedor
+    - Filtrado por tipo de proveedor y ciudad
+- /login:
+    - Disponemos de dos campos para logearnos con email y password correspondiente
+    - Si no estamos registrados, disponemos de un acceso directo para registrarse
+- /register:
+    - Introducimos los datos de registro y nos redirecciona a /login para logearnos por primera vez.
+- /profile:
+    - Una vez logueados, accederemos al apartado perfil, donde aparecerán las opiniones publicadas.
+- /review:
+    - Podremos publicar una opinión de un proveedor determinado.
+    - Disponemos de un input donde buscar el provvedor que queremos realizar la valoración el cual, en el momento de introducir por teclado irá buscando coincidencias.
+- /opinion:
+    - Aparece las opiniones que tiene asignadas el proveedor seleccionado previamente.
+- /restaurant /photographers /florist /beauty
+    - Son las vistas creadas para mostrar todos los comercios filtrados según su tipo.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### REGEX 📌
+- Formato email valido
+- Password:
+    - Debe contener entre 8 y 10 caracteres con Mayusculas, minúsculas y caracter especial.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Construido con 🛠️
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+_Tecnologías utilizadas en el proyecto_
 
-### `npm run eject`
+- Javascript
+- NodeJS
+- React
+- Redux
+- SASS
+- Git
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+_Librerías utilizadas en el proyecto_
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- axios
+- regex
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+_Herramientas utilizadas en el proyecto_
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- Git Flow
+- GitHub
+- Heroku
+- React Developer Tools
+- Redux DevTools
+- Trello
 
-## Learn More
+## Autor ✒️
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+* **Javier García**  - [javigarcias](https://github.com/javigarcias)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
+⌨️ con ❤️ por [JaviGarcia](https://www.linkedin.com/in/javigarciasanchez/) 😊
