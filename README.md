@@ -21,7 +21,7 @@ npm start
 ```
 ## Ejecutando las pruebas ⚙️
 
-* [The Perfect Day](https://the-perfect-day-front.herokuapp.com/)
+* [www.theperfectday.com](https://the-perfect-day-front.herokuapp.com/)
 
 ### Components 📌
 - /header:

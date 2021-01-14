@@ -12,6 +12,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    margin-top: 2em;
 
 }
 .commercesFound{
@@ -40,4 +41,15 @@ textarea{
     padding: 0.2em;
     height: 10em;
 }
-
+.messageLogin{
+    width: 20em;
+    background-color: #f9c6d7;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0.2em;
+    font-size: 2em;
+    font-weight: bold;
+    color: white;
+    border-radius: 0.2em;
+}
