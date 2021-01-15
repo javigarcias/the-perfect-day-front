@@ -33,6 +33,11 @@ const Home = (props) => {
         props.dispatch({ type: SHOW_COMMERCE, payload: commerce });
         history.push('/opinion');
     }
+    //Funcion que guarda en Redux el comercio seleccionado para publicar su opinión
+    const postOpinion = async (commerce) => {
+        props.dispatch({ type: SHOW_COMMERCE, payload: commerce });
+        history.push('/review');
+    }
 
     //Función que ejecuta el filtrado de comercios según el tipo y la ciudad
     const handleSearch = async () => {
@@ -106,6 +111,7 @@ const Home = (props) => {
                             </div>
                             <div className="buttonCard">
                                 <button className="opinionButton" onClick={() => { showOpinions(commerce) }}>Ver Opiniones</button>
+                                <button className="opinionButton" onClick={() => { postOpinion(commerce) }}>Opina</button>
                             </div>
                         </div>
                     )
@@ -121,7 +127,7 @@ const Home = (props) => {
 
 const mapStateToProps = state => {
     return {
-        commerces: state.commerces,
+        commerces: state.commerces
     }
 }
 

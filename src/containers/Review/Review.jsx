@@ -15,23 +15,34 @@ const Review = (props) => {
     const [messageOk, setMessageOk] = useState();
     const [messageError, setMessageError] = useState();
     const [messageLogin, setMessageLogin] = useState();
+    const [messageCommerce, setMessageCommerce] = useState();
     const userId = props.user.id;
+    console.log(commerceSelected)
     
     
 
     useEffect(() => {
+        //Comprueba que hay un usuario logeado, de no ser así, redirecciona a /login
         if (!props.user.id){
             setMessageLogin("Debes iniciar sesión");
             setTimeout(() => {
                 history.push("/login")
             }, 2000);
         }
+        //Muestra el comercio si se ha seleccionado previamente
+        setMessageCommerce(props.commerce.name)
+        //Carga en Redux todos los comercios para tener un acceso rapido en la busqueda con una sola peticion a la BD
         axios.get(process.env.REACT_APP_API_URL +'/commerces')
             .then(res => {
                 props.dispatch({ type: GET_COMMERCES, payload: res.data });
             })
     }, [])
 
+
+    const selectCommerce = (commerce) => {
+        setMessageCommerce(commerce.name)
+        props.dispatch({ type: SHOW_COMMERCE, payload: commerce})
+    }
 
     const handleSearch = event => {
         setSearch(event.target.value)
@@ -53,7 +64,7 @@ const Review = (props) => {
 
         const opinionBody = {
             UserId: userId,
-            CommerceId: commerceSelected,
+            CommerceId: commerceSelected.id,
             vote: event.target.vote.value,
             opinion: event.target.opinion.value
         };
@@ -86,7 +97,7 @@ const Review = (props) => {
                             <img className="commerceImage" src={commerce.image}></img>
                         </div>
                         <div className="buttonCard">
-                            <button className="opinionButton" onClick={ () => { setCommerceSelected(commerce.id) }}>SELECCIONAR</button>
+                            <button className="opinionButton" onClick={ () => { selectCommerce(commerce) }}>SELECCIONAR</button>
                         </div>
                     </div>
             </div>
@@ -107,7 +118,7 @@ const Review = (props) => {
             </div>
             <div className="reviewZone">
                 <div className="commerceSelected">
-
+                    {messageCommerce}
                 </div>
                 <form className='inputReview' onSubmit={handleOpinion}>
                     <div className='inputName'>Valoración (0-5)</div>

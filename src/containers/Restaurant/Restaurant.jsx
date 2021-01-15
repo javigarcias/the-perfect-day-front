@@ -15,6 +15,11 @@ const Restaurant = (props) => {
         history.push('/opinion');
     }
 
+    const postOpinion = async (restaurant) => {
+        props.dispatch({ type: SHOW_COMMERCE, payload: restaurant});
+        history.push('/review');
+    }
+
     useEffect(() => {
         axios.get(process.env.REACT_APP_API_URL +'/commerces/restaurants')
             .then(res => {
@@ -53,6 +58,7 @@ const Restaurant = (props) => {
                             </div>
                             <div className="buttonCard">
                                 <button className="opinionButton" onClick={() => { showOpinions(restaurant) }}>Ver Opiniones</button>
+                                <button className="opinionButton" onClick={() => { postOpinion(restaurant) }}>Opina</button>
                             </div>
                         </div>
                     )

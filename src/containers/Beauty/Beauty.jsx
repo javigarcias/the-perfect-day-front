@@ -15,6 +15,11 @@ const Beauty = (props) => {
         history.push('/opinion');
     }
 
+    const postOpinion = async (beauty) => {
+        props.dispatch({ type: SHOW_COMMERCE, payload: beauty });
+        history.push('/review');
+    }
+
     useEffect(() => {
         axios.get(process.env.REACT_APP_API_URL +'/commerces/beauty')
             .then(res => {
@@ -53,6 +58,7 @@ const Beauty = (props) => {
                             </div>
                             <div className="buttonCard">
                                 <button className="opinionButton" onClick={() => { showOpinions(beauty) }}>Ver Opiniones</button>
+                                <button className="opinionButton" onClick={() => { postOpinion(beauty) }}>Opina</button>
                             </div>
                         </div>
                     )

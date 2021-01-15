@@ -16,6 +16,11 @@ const Photographers = (props) => {
         history.push('/opinion');
     }
 
+    const postOpinion = async (photographer) => {
+        props.dispatch({ type: SHOW_COMMERCE, payload: photographer});
+        history.push('/review');
+    }
+
     useEffect(() => {
         axios.get(process.env.REACT_APP_API_URL +'/commerces/photographers')
             .then(res => {
@@ -54,6 +59,7 @@ const Photographers = (props) => {
                             </div>
                             <div className="buttonCard">
                                 <button className="opinionButton" onClick={() => { showOpinions(photographer) }}>Ver Opiniones</button>
+                                <button className="opinionButton" onClick={() => { postOpinion(photographer) }}>Opina</button>
                             </div>
                         </div>
                     )
