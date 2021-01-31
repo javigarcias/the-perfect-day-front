@@ -77,7 +77,7 @@ const Review = (props) => {
         })
 
     }
-
+    //Busca el comercio introducido en el imput localizando todas las coincidencias por cada letra introducida
     const searchCommerce = (props) => {
 
         const result = props.commerces?.filter(commerce => {
@@ -118,7 +118,10 @@ const Review = (props) => {
             </div>
             <div className="reviewZone">
                 <div className="commerceSelected">
+                    <div className="tittleCommerceSelect">Comercio Seleccionado</div>
+                    <div className="commerceName">
                     {messageCommerce}
+                    </div>
                 </div>
                 <form className='inputReview' onSubmit={handleOpinion}>
                     <div className='inputName'>Valoración (0-5)</div>
