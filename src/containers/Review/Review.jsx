@@ -52,7 +52,7 @@ const Review = (props) => {
         event.preventDefault();
 
         //Comprobamos que se ha seleccionado un comercio
-        if(!commerceSelected){
+        if(!props.commerce){
             setMessageError("Debes seleccionar un proveedor");
             return;
         }
@@ -64,7 +64,7 @@ const Review = (props) => {
 
         const opinionBody = {
             UserId: userId,
-            CommerceId: commerceSelected.id,
+            CommerceId: props.commerce.id,
             vote: event.target.vote.value,
             opinion: event.target.opinion.value
         };
